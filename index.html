@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sınıf Başkanı Olma Similatör</title>
+    <style>
+        #a1,#a2,#a3{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="i1">
+        <h4 id="oy">Oy = 50%</h4>
+        <h4 id="it">İtibar = 10</h4>
+        <h4 id="hi">Hocalarla Anlaşma: 50%</h4>
+    </div>
+    <div id="i2">
+        <button onclick="Y()">Yaramazlık Yapanları Tahtaya Yaz (-1% oy, +1 itibar, +2% hocalarla anlaşma)</button>
+        <button onclick="U()">Yaramazlık Yapanları Tahtaya Yazma (+3% oy, -2 itibar, -3% hocalarla anlaşma)</button>
+        <button onclick="H()">Sende Yaramazlık Yap :) (+5% oy, -1 itibar, -5% hocalarla anlaşma)</button>
+        <button onclick="Ç()">Sınıf Seçimine Hazırlan (+12% oy, +2 itibar, -3% hocalarla anlaşma)</button>
+    </div>
+    <div id="a1">
+        <h4 id="yrmz">Furkan ve Ali Kemal Birlikte Yaramazlık Yaptı</h4>
+        <button onclick="S1()">Yaramazı Tahtaya Yaz (-2% oy, +1 itibar, +2% hocalarla anlaşma)</button>
+        <button onclick="S2()">Yaramazlık Yapanı Döv (-5% oy, +10 itibar, -12% hocalarla anlaşma)</button>
+        <button onclick="S3()">Görmezden Gel (+2% oy, -3 itibar, -2% hocalarla anlaşma)</button>
+    </div>
+    <div id="a2">
+        <h4 id="ady">Berat Aday Oldu</h4>
+        <button onclick="S11()">Onu Tahtaya Yaz (+4% oy, +5 itibar, -8% hocalarla anlaşma)</button>
+        <button onclick="S12()">Onu Döv (-5% oy, +15 itibar, -30% hocalarla anlaşma)</button>
+        <button onclick="S13()">Görmezden Gel (-20% oy, -8 itibar, +5% hocalarla anlaşma)</button>
+        <button onclick="S14()">Bir Daha ki Seçimler İçin Daha İyi Hazırlan (-4% oy, -2 itibar, +1% hocalarla anlaşma)</button>
+    </div>
+    <div id="a3">
+        <h4 id="dsmn">5-A'dan birisi 5-B'deki bir öğrenciye bulaştı</h4>
+        <button onclick="S21()">Onu Disipline Gönder (+2% oy, +3 itibar, +2% hocalarla anlaşma)</button>
+        <button onclick="S22()">Onu Döv (+8% oy, +4 itibar, -12% hocalarla anlaşma)</button>
+        <button onclick="S23()">Görmezden Gel (-3% oy, -2 itibar, -1% hocalarla anlaşma)</button>
+        <button onclick="S24()">Ordu Topla Ve...(+40% oy, +12 itibar, -99% hocalarla anlaşma)</button>
+    </div>
+<script>
+    var oy = 50;
+    var it = 10;
+    var hi = 50;
+    var o = "y";
+    function Y(){
+        oy -= 1;
+        it += 1;
+        hi += 2;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+        function Ç(){
+        oy += 12;
+        it += 2;
+        hi -= 3;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+    function U(){
+        oy += 3;
+        it -= 2;
+        hi -= 3;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+    function H(){
+        oy += 5;
+        it -= 1;
+        hi -= 5;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+    setInterval(function(){
+        if(o == "y"){
+            o = "n";
+        var rnd = Math.floor(Math.random()* 3) + 1;
+        document.getElementById("a" + rnd).style.display = "block";
+        }
+    }, 10000);
+    function S1(){
+        o = "y";
+        oy -= 2;
+        it += 1;
+        hi += 2;
+        document.getElementById("a1").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+        function S2(){
+        o = "y";
+        oy -= 5;
+        it += 10;
+        hi -= 12;
+        document.getElementById("a1").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+            function S3(){
+        o = "y";
+        oy += 2;
+        it -= 3;
+        hi -= 2;
+        document.getElementById("a1").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+            function S11(){
+        o = "y";
+        oy += 4;
+        it += 5;
+        hi -= 8;
+        document.getElementById("a2").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+            function S12(){
+        o = "y";
+        oy -= 5;
+        it += 15;
+        hi -= 30;
+        document.getElementById("a2").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+            function S13(){
+        o = "y";
+        oy -= 20;
+        it -= 8;
+        hi += 5;
+        document.getElementById("a2").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+            function S14(){
+        o = "y";
+        oy -= 4;
+        it -= 2;
+        hi += 1;
+        document.getElementById("a2").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+            function S21(){
+        o = "y";
+        oy += 2;
+        it += 3;
+        hi += 2;
+        document.getElementById("a3").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+            function S22(){
+        o = "y";
+        oy += 8;
+        it += 3;
+        hi -= 12;
+        document.getElementById("a3").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+            function S23(){
+        o = "y";
+        oy -= 3;
+        it -= 2;
+        hi -= 1;
+        document.getElementById("a3").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+            function S24(){
+        o = "y";
+        alert("...");
+        oy += 40;
+        it += 12;
+        hi -= 99;
+        document.getElementById("a3").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+    setInterval(function(){
+if(oy <= 30){
+alert("Kaybettin Bir Dahakine Oya Dikkat Etmelisin 30'dan aşağıya düşmemeli.");
+}
+else if(it <= 0){
+alert("Kaybettin çünkü sınıfta seni artık ciddiye almıyorlar. Bir Dahakine İtibara Dikkat Etmelisin 0'dan aşağıya düşmemeli.");
+}
+else if(hi <= 0){
+alert("Kaybettin çünkü disipline gittin. Hocalarla Anlaşmanı 0'dan yüksekte tutmalısın");
+}
+else if(oy >= 90 && it >= 40 && hi >= 60){
+alert("Kazandın.");
+}
+    }, 1);
+</script>
+</body>
+</html>
