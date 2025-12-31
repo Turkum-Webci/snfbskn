@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sınıf Başkanı Olma Similatör</title>
     <style>
-        #a1,#a2,#a3{
+        #a1,#a2,#a3,#a4{
             display: none;
         }
     </style>
@@ -37,10 +37,17 @@
     </div>
     <div id="a3">
         <h4 id="dsmn">5-A'dan birisi 5-B'deki bir öğrenciye bulaştı</h4>
-        <button onclick="S21()">Onu Disipline Gönder (+2% oy, +3 itibar, +2% hocalarla anlaşma)</button>
-        <button onclick="S22()">Onu Döv (+8% oy, +4 itibar, -12% hocalarla anlaşma)</button>
-        <button onclick="S23()">Görmezden Gel (-3% oy, -2 itibar, -1% hocalarla anlaşma)</button>
-        <button onclick="S24()">Ordu Topla Ve...(+40% oy, +12 itibar, -99% hocalarla anlaşma)</button>
+        <button onclick="S21()">Onu Disipline Gönder (+2% oy, +3 itibar, +12% hocalarla anlaşma)</button>
+        <button onclick="S22()">Onu Döv (+8% oy, +3 itibar, -12% hocalarla anlaşma)</button>
+        <button onclick="S23()">Görmezden Gel (-5% oy, -10 itibar, -1% hocalarla anlaşma)</button>
+        <button onclick="S24()">Ordu Topla Ve...(+40% oy, +12 itibar, -99% hocalarla anlşma)</button>
+    </div>
+    <div id="a4">
+        <h4 id="hn">Sınıfta HUZEYFE İSTİFA diye bağırıyorlar ve seni dövüyorlar</h4>
+        <button onclick="S31()">Onları Disipline Gönder (+2% oy, +3 itibar, +2% hocalarla anlaşma)</button>
+        <button onclick="S32()">Onları Döv (+8% oy, +4 itibar, -12% hocalarla anlaşma)</button>
+        <button onclick="S33()">Görmezden Gel (-3% oy, -2 itibar, +5% hocalarla anlaşma)</button>
+        <button onclick="S34()">Ordu Topla Ve...(+20% oy, +100000000000000000000000000000000000 itibar, -30% hocalarla anlaşma)</button>
     </div>
 <script>
     var oy = 50;
@@ -82,7 +89,7 @@
     setInterval(function(){
         if(o == "y"){
             o = "n";
-        var rnd = Math.floor(Math.random()* 3) + 1;
+        var rnd = Math.floor(Math.random()* 4) + 1;
         document.getElementById("a" + rnd).style.display = "block";
         }
     }, 10000);
@@ -160,13 +167,13 @@
         o = "y";
         oy += 2;
         it += 3;
-        hi += 2;
+        hi += 12;
         document.getElementById("a3").style.display = "none";
         document.getElementById("it").innerHTML = it;
         document.getElementById("oy").innerHTML = oy + "%";
         document.getElementById("hi").innerHTML = hi + "%";
     }
-            function S22(){
+        function S22(){
         o = "y";
         oy += 8;
         it += 3;
@@ -178,8 +185,8 @@
     }
             function S23(){
         o = "y";
-        oy -= 3;
-        it -= 2;
+        oy -= 5;
+        it -= 10;
         hi -= 1;
         document.getElementById("a3").style.display = "none";
         document.getElementById("it").innerHTML = it;
@@ -193,6 +200,48 @@
         it += 12;
         hi -= 99;
         document.getElementById("a3").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+                function S31(){
+        o = "y";
+        oy += 2;
+        it += 3;
+        hi += 2;
+        document.getElementById("a4").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+                function S32(){
+        o = "y";
+        alert("... Sen Dayak Yedin :)");
+        oy -= 12;
+        it -= 8;
+        hi -= 1;
+        document.getElementById("a4").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+                function S33(){
+        o = "y";
+        oy -= 10;
+        it -= 2;
+        hi -= 5;
+        document.getElementById("a4").style.display = "none";
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+                function S34(){
+        o = "y";
+        alert("... Büyük Huzeyfe Ordusu ...");
+        oy += 20;
+        it += 100000000000000000000000000000000000;
+        hi -= 30;
+        document.getElementById("a4").style.display = "none";
         document.getElementById("it").innerHTML = it;
         document.getElementById("oy").innerHTML = oy + "%";
         document.getElementById("hi").innerHTML = hi + "%";
