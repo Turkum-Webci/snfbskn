@@ -15,12 +15,13 @@
         <h4 id="oy">Oy = 50%</h4>
         <h4 id="it">İtibar = 10</h4>
         <h4 id="hi">Hocalarla Anlaşma: 50%</h4>
+        <h6 id="puan">Puan: 0</h6>
     </div>
     <div id="i2">
         <button onclick="Y()">Yaramazlık Yapanları Tahtaya Yaz (-1% oy, +1 itibar, +2% hocalarla anlaşma)</button>
         <button onclick="U()">Yaramazlık Yapanları Tahtaya Yazma (+3% oy, -2 itibar, -3% hocalarla anlaşma)</button>
         <button onclick="H()">Sende Yaramazlık Yap :) (+5% oy, -1 itibar, -5% hocalarla anlaşma)</button>
-        <button onclick="Ç()">Sınıf Seçimine Hazırlan (+12% oy, +2 itibar, -3% hocalarla anlaşma)</button>
+        <button onclick="Ç()">Sınıf Seçimine Hazırlan (+7% oy, -1 itibar, -5% hocalarla anlaşma)</button>
     </div>
     <div id="a1">
         <h4 id="yrmz">Furkan ve Ali Kemal Birlikte Yaramazlık Yaptı</h4>
@@ -49,11 +50,94 @@
         <button onclick="S33()">Görmezden Gel (-3% oy, -2 itibar, +5% hocalarla anlaşma)</button>
         <button onclick="S34()">Ordu Topla Ve...(+20% oy, +100000000000000000000000000000000000 itibar, -30% hocalarla anlaşma)</button>
     </div>
+    <div id="a5">
+        <h4 id="trl">Okula Konuşmacı Geldi</h4>
+        <button onclick="S41()">Onu Öv (+3% oy, -1 itibar, +4% hocalarla anlaşma)</button>
+        <button onclick="S42()">Onu Döv (+16% oy, +9 itibar, -1000% hocalarla anlaşma)</button>
+        <button onclick="S43()">Görmezden Gel (-1% oy, +1 itibar, -2% hocalarla anlaşma)</button>
+        <button onclick="S44()">Ordu Topla Ve...(+200% oy, +300 itibar, -30000% hocalarla anlaşma)</button>
+    </div>
+    <div id="a6">
+        <h4 id="usl">Oğuz Aşırı Uslu Durdu</h4>
+        <button onclick="S51()">Onu Öv (+3% oy, -1 itibar, +5% hocalarla anlaşma)</button>
+        <button onclick="S52()">Onu Tahtaya Yaz Ve Döv (-2% oy, +3 itibar, -10% hocalarla anlaşma)</button>
+        <button onclick="S53()">Görmezden Gel (+1% oy, +0 itibar, -1% hocalarla anlaşma)</button>
+    </div>
 <script>
     var oy = 50;
     var it = 10;
     var hi = 50;
+    var p = 0;
     var o = "y";
+    function S51(){
+                o = "y";
+        oy += 3;
+        it -= 1;
+        hi += 5;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+    function S52(){
+                o = "y";
+        alert("Başarım Açıldı: Benim Sınıfımda Kimse Uslu Duramaz! 1 Puan Kazandın");
+        p += 1;
+        oy -= 2;
+        it += 3;
+        hi -= 10;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+    function S53(){
+                o = "y";
+        oy += 1;
+        it += 0;
+        hi -= 1;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+    function S41(){
+                o = "y";
+        oy += 3;
+        it -= 1;
+        hi += 4;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+    function S42(){
+                o = "y";
+        alert("Başarım Açıldı: Korkusuz Kavgacı 2 Puan Kazandın");
+        p += 2;
+        oy += 16;
+        it += 9;
+        hi -= 1000;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+    function S43(){
+                o = "y";
+        oy -= 1;
+        it += 1;
+        hi -= 2;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
+    function S44(){
+                o = "y";
+        alert("Başarım Açıldı: Geleceğiniz Varsa Göreceğinizde Vardır.10 Puan Kazandın (ek olarak okuldan hocalar seni okuldan atmaya korktu artık okulu fetih ettin :D)");
+        p += 10;
+        oy += 200;
+        it += 300;
+        hi += 30000;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+    }
     function Y(){
         oy -= 1;
         it += 1;
@@ -63,9 +147,9 @@
         document.getElementById("hi").innerHTML = hi + "%";
     }
         function Ç(){
-        oy += 12;
-        it += 2;
-        hi -= 3;
+        oy += 7;
+        it -= 1;
+        hi -= 5;
         document.getElementById("it").innerHTML = it;
         document.getElementById("oy").innerHTML = oy + "%";
         document.getElementById("hi").innerHTML = hi + "%";
@@ -89,7 +173,7 @@
     setInterval(function(){
         if(o == "y"){
             o = "n";
-        var rnd = Math.floor(Math.random()* 4) + 1;
+        var rnd = Math.floor(Math.random()* 6) + 1;
         document.getElementById("a" + rnd).style.display = "block";
         }
     }, 10000);
@@ -195,7 +279,8 @@
     }
             function S24(){
         o = "y";
-        alert("...");
+        alert("Başarım Açıldı: Kimse Benim Sınıfım Dokunamaz. 5 Puan Kazandın");
+        p += 5;
         oy += 40;
         it += 12;
         hi -= 99;
@@ -237,7 +322,8 @@
     }
                 function S34(){
         o = "y";
-        alert("... Büyük Huzeyfe Ordusu ...");
+        alert("Başarım Açıldı: sen dayak yersin böyle. 1 puan kazandın");
+        p += 1;
         oy += 20;
         it += 100000000000000000000000000000000000;
         hi -= 30;
@@ -257,8 +343,11 @@ else if(hi <= 0){
 alert("Kaybettin çünkü disipline gittin. Hocalarla Anlaşmanı 0'dan yüksekte tutmalısın");
 }
 else if(oy >= 90 && it >= 40 && hi >= 60){
-alert("Kazandın.");
+alert("Kazandın. 3 puan kazandın.");
+oy = 10;
+p += 3;
 }
+        document.getElementById("puan").innerHTML = "Puanınız: " + p;
     }, 1);
 </script>
 </body>
