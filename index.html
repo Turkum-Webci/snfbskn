@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sınıf Başkanı Olma Similatör</title>
     <style>
-        #a1,#a2,#a3,#a4{
+        #a1,#a2,#a3,#a4,#a5,#a6{
+            display: none;
+            background-color: aqua;
+            border-radius: 10%;
+        }
+        #krmk,#omrk,#mhtk{
             display: none;
         }
+
     </style>
 </head>
 <body>
@@ -63,12 +69,131 @@
         <button onclick="S52()">Onu Tahtaya Yaz Ve Döv (-2% oy, +3 itibar, -10% hocalarla anlaşma)</button>
         <button onclick="S53()">Görmezden Gel (+1% oy, +0 itibar, -1% hocalarla anlaşma)</button>
     </div>
+    <div id="dgr">
+        <h3>Kim İle Konuşacaksın: </h4>
+        <button onclick="K1()">Kerem'le Konuş</button>
+        <button onclick="O1()">Ömer'le Konuş</button>
+        <button onclick="M1()">Mahmut'la Konuş</button>
+    </div>
+    <div id="krmk">
+        <button onclick="SR1K()">Sınıf Hakkında Ne Düşünüyorsun?</button>
+        <button onclick="SR2K()">Sence Nasıl Bir Başkanım?</button>
+        <button onclick="SR3()">Görüşürüz</button>
+        <p id="kcvp">Kerem: </p>
+    </div>
+    <div id="omrk">
+        <button onclick="SR1O()">Sınıf Hakkında Ne Düşünüyorsun?</button>
+        <button onclick="SR2O()">Sence Nasıl Bir Başkanım?</button>
+        <button onclick="SR3()">Görüşürüz</button>
+        <p id="ocvp">Ömer: </p>
+    </div>
+    <div id="mhtk">
+        <button onclick="SR1M()">Sınıf Hakkında Ne Düşünüyorsun?</button>
+        <button onclick="SR2M()">Sence Nasıl Bir Başkanım?</button>
+        <button onclick="SR3()">Görüşürüz</button>
+        <p id="mcvp">Mahmut: </p>
+    </div>
 <script>
     var oy = 50;
     var it = 10;
     var hi = 50;
     var p = 0;
     var o = "y";
+    function SR1K(){
+        if (it >= 80){
+            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıfın Gidişatından Mutluyum.Çünkü İtibarın Yüksek ve yaramazlıklar azaldı.";
+        }
+        else if (it >= 50 && it <= 79){
+            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıfın Gidişatından Memnunum.Çünkü İtibarın Ortalama ve yaramazlıklar çok değil.";
+        }
+        else if (it >= 20 && it <= 49){
+            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıfın Gidişatından Endişeleniyorum.Çünkü İtibarın Düşük ve yaramazlıklar fazla.";
+        }
+        else if (it >= 1 && it <= 19){
+            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıfın Gidişatından Korkuyorum.Çünkü İtibarın Çok Düşük ve yaramazlıklar çok fazla.Acilen bir çözüm bul.";
+        }
+    }
+    function SR2K(){
+        if (oy >= 80){
+            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıf Başkanlığında Oyun Çok Arttı Seni Tebrik Ederim Sınıftakiler Seni Çok Seviyor.";
+        }
+        else if (oy >= 50 && oy <= 79){
+            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıf Başkanlığını Sınıftakiler Seviyor.";
+        }
+        else if (oy >= 30 && oy <= 49){
+            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıf Başkanlığın Kötü sınıftakiler seni hiç sevmiyor ve bence haklılar.";
+        }
+    }
+    function SR1O(){
+        if (it >= 80){
+            document.getElementById("ocvp").innerHTML = "Ömer: Huzeyfe Sınıftan Mutluyum.Çünkü İtibarın Yüksek ve yaramazlıklar azaldı.";
+        }
+        else if (it >= 50 && it <= 79){
+            document.getElementById("ocvp").innerHTML = "Ömer: Huzeyfe Sınıftan Memnunum.Çünkü İtibarın Ortalama ve yaramazlıklar çok değil.";
+        }
+        else if (it >= 20 && it <= 49){
+            document.getElementById("ocvp").innerHTML = "Ömer: Huzeyfe Sınıftan Endişeleniyorum.Çünkü İtibarın Düşük ve yaramazlıklar fazla.Yaramazlık Yapanları Dövmelisin";
+        }
+        else if (it >= 1 && it <= 19){
+            document.getElementById("ocvp").innerHTML = "Ömer: Huzeyfe Sınıftan Korkuyorum.Çünkü İtibarın Çok Düşük ve yaramazlıklar çok fazla.Acilen bir çözüm bul bence onları döv.";
+        }
+    }
+    function SR2O(){
+        if (oy >= 80){
+            document.getElementById("ocvp").innerHTML = "Ömer: Huzeyfe Sınıf Başkanlığını Sadece Oy Kazanmak Sanıyorsun.";
+        }
+        else if (oy >= 50 && oy <= 79){
+            document.getElementById("ocvp").innerHTML = "Ömer: Huzeyfe Sınıf Başkanlığını Sınıftakiler Seviyor.ama ben sevmiyorum";
+        }
+        else if (oy >= 30 && oy <= 49){
+            document.getElementById("ocvp").innerHTML = "Ömer: Huzeyfe Senden Bir Cacık Olmaz. Sınıf Başkanlığın Kötü sınıftakiler seni hiç sevmiyorlar çünkü haklılar.";
+        }
+    }
+    function SR1M(){
+        if (it >= 80){
+            document.getElementById("mcvp").innerHTML = "Mahmut: Huzeyfe Sınıftan Mutluyum.Çünkü İtibarın Yüksek ve yaramazlıklar azaldı.Seni Tebrik Ederim.";
+        }
+        else if (it >= 50 && it <= 79){
+            document.getElementById("mcvp").innerHTML = "Mahmut: Huzeyfe Sınıftan Memnunum.Çünkü İtibarın Ortalama ve yaramazlıklar çok değil.İyi Bir Başkansın";
+        }
+        else if (it >= 20 && it <= 49){
+            document.getElementById("mcvp").innerHTML = "Mahmut: Huzeyfe Sınıftan Endişeleniyorum.Çünkü İtibarın Düşük ve yaramazlıklar fazla.Daha Dikkatli Ol";
+        }
+        else if (it >= 1 && it <= 19){
+            document.getElementById("mcvp").innerHTML = "Mahmut: Huzeyfe Sınıftan Korkuyorum.Çünkü İtibarın Çok Düşük ve yaramazlıklar çok fazla.Çok Dikkatli Ol Huzeyfe.";
+        }
+    }
+    function SR2M(){
+        if (oy >= 80){
+            document.getElementById("mcvp").innerHTML = "Mahmut: Huzeyfe Sınıf Başkanlığını Tebrik Ediyorum.";
+        }
+        else if (oy >= 50 && oy <= 79){
+            document.getElementById("mcvp").innerHTML = "Mahmut: Huzeyfe Sınıf Başkanlığını Sınıftakiler Seviyor.Bende Seni seviyorum";
+        }
+        else if (oy >= 30 && oy <= 49){
+            document.getElementById("mcvp").innerHTML = "Mahmut: Huzeyfe Sen bence iyi bir başkansın ama daha dikkatli olmalısın.Kendini üzme";
+        }
+    }
+    function K1(){
+        document.getElementById("krmk").style.display = "block";
+        document.getElementById("omrk").style.display = "none";
+        document.getElementById("mhtk").style.display = "none";
+    }
+    function O1(){
+        document.getElementById("krmk").style.display = "none";
+        document.getElementById("omrk").style.display = "block";
+        document.getElementById("mhtk").style.display = "none";
+    }
+    function M1(){
+        document.getElementById("krmk").style.display = "none";
+        document.getElementById("omrk").style.display = "none";
+        document.getElementById("mhtk").style.display = "block";
+    }
+    function SR3(){
+        document.getElementById("krmk").style.display = "none";
+        document.getElementById("omrk").style.display = "none";
+        document.getElementById("mhtk").style.display = "none";
+    }
     function S51(){
                 o = "y";
         oy += 3;
@@ -77,6 +202,7 @@
         document.getElementById("it").innerHTML = it;
         document.getElementById("oy").innerHTML = oy + "%";
         document.getElementById("hi").innerHTML = hi + "%";
+        document.getElementById("a6").style.display = "none";
     }
     function S52(){
                 o = "y";
@@ -88,6 +214,7 @@
         document.getElementById("it").innerHTML = it;
         document.getElementById("oy").innerHTML = oy + "%";
         document.getElementById("hi").innerHTML = hi + "%";
+        document.getElementById("a6").style.display = "none";
     }
     function S53(){
                 o = "y";
@@ -97,6 +224,7 @@
         document.getElementById("it").innerHTML = it;
         document.getElementById("oy").innerHTML = oy + "%";
         document.getElementById("hi").innerHTML = hi + "%";
+         document.getElementById("a6").style.display = "none";
     }
     function S41(){
                 o = "y";
@@ -106,6 +234,7 @@
         document.getElementById("it").innerHTML = it;
         document.getElementById("oy").innerHTML = oy + "%";
         document.getElementById("hi").innerHTML = hi + "%";
+         document.getElementById("a5").style.display = "none";
     }
     function S42(){
                 o = "y";
@@ -117,6 +246,7 @@
         document.getElementById("it").innerHTML = it;
         document.getElementById("oy").innerHTML = oy + "%";
         document.getElementById("hi").innerHTML = hi + "%";
+         document.getElementById("a5").style.display = "none";
     }
     function S43(){
                 o = "y";
@@ -126,6 +256,7 @@
         document.getElementById("it").innerHTML = it;
         document.getElementById("oy").innerHTML = oy + "%";
         document.getElementById("hi").innerHTML = hi + "%";
+         document.getElementById("a5").style.display = "none";
     }
     function S44(){
                 o = "y";
@@ -137,6 +268,7 @@
         document.getElementById("it").innerHTML = it;
         document.getElementById("oy").innerHTML = oy + "%";
         document.getElementById("hi").innerHTML = hi + "%";
+                document.getElementById("a5").style.display = "none";
     }
     function Y(){
         oy -= 1;
