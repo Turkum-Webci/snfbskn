@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sınıf Başkanı Olma Similatör</title>
     <style>
-        #a1,#a2,#a3,#a4,#a5,#a6{
+        #a1,#a2,#a3,#a4,#a5,#a6,#a7{
             display: none;
             background-color: aqua;
             border-radius: 10%;
@@ -22,6 +22,7 @@
         <h4 id="it">İtibar = 10</h4>
         <h4 id="hi">Hocalarla Anlaşma: 50%</h4>
         <h6 id="puan">Puan: 0</h6>
+        <h6 id="pr">Para: 0</h6>
     </div>
     <div id="i2">
         <button onclick="Y()">Yaramazlık Yapanları Tahtaya Yaz (-1% oy, +1 itibar, +2% hocalarla anlaşma)</button>
@@ -69,6 +70,12 @@
         <button onclick="S52()">Onu Tahtaya Yaz Ve Döv (-2% oy, +3 itibar, -10% hocalarla anlaşma)</button>
         <button onclick="S53()">Görmezden Gel (+1% oy, +0 itibar, -1% hocalarla anlaşma)</button>
     </div>
+    <div id="a7">
+        <h4 id="tvsy">Şansına İtibarın Çok Azaldığından Tacettin Hoca Sana Görev Verdi</h4>
+        <button onclick="S61()">Kabul Et (-3% oy, +4 itibar, +5% hocalarla anlaşma)</button>
+        <button onclick="S62()">Kabul Etme (+2% oy, -1 itibar, -2% hocalarla anlaşma)</button>
+        <button onclick="S63()">Sınıfa Bu Olayı Anlat (+4% oy, +2 itibar, -4% hocalarla anlaşma)</button>
+    </div>
     <div id="dgr">
         <h3>Kim İle Konuşacaksın: </h4>
         <button onclick="K1()">Kerem'le Konuş</button>
@@ -78,6 +85,8 @@
     <div id="krmk">
         <button onclick="SR1K()">Sınıf Hakkında Ne Düşünüyorsun?</button>
         <button onclick="SR2K()">Sence Nasıl Bir Başkanım?</button>
+        <button onclick="SR3K()">Beni Desteklermisin?</button>
+        <button onclick="SR4K()">3D Yazıcıdan Yıldız Modelleri Çıkarırmısın? (+1 itibar, +4 oy, +3 hocalarla anlaşma, -250 para)</button>
         <button onclick="SR3()">Görüşürüz</button>
         <p id="kcvp">Kerem: </p>
     </div>
@@ -90,6 +99,7 @@
     <div id="mhtk">
         <button onclick="SR1M()">Sınıf Hakkında Ne Düşünüyorsun?</button>
         <button onclick="SR2M()">Sence Nasıl Bir Başkanım?</button>
+        <button onclick="SR3M()">Beni Desteklermisin?</button>
         <button onclick="SR3()">Görüşürüz</button>
         <p id="mcvp">Mahmut: </p>
     </div>
@@ -97,8 +107,38 @@
     var oy = 50;
     var it = 10;
     var hi = 50;
-    var p = 0;
+    var pr1 = 0;
     var o = "y";
+    function S61(){
+                o = "y";
+        oy -= 3;
+        it += 4;
+        hi += 5;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+        document.getElementById("a7").style.display = "none";
+    }
+    function S62(){
+                o = "y";
+        oy += 2;
+        it -= 1;
+        hi -= 2;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+        document.getElementById("a6").style.display = "none";
+    }
+    function S63(){
+                o = "y";
+        oy += 4;
+        it += 2;
+        hi -= 4;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+        document.getElementById("a6").style.display = "none";
+    }
     function SR1K(){
         if (it >= 80){
             document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıfın Gidişatından Mutluyum.Çünkü İtibarın Yüksek ve yaramazlıklar azaldı.";
@@ -122,6 +162,42 @@
         }
         else if (oy >= 30 && oy <= 49){
             document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıf Başkanlığın Kötü sınıftakiler seni hiç sevmiyor ve bence haklılar.";
+        }
+    }
+    function SR3K(){
+        if (it >= 70){
+            document.getElementById("kcvp").innerHTML = "Kerem: Elbette Sen İyi Bir Başkansın.";
+            it -= 1;
+            oy += 5;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        }
+        else if (it <= 79){
+            document.getElementById("kcvp").innerHTML = "Kerem: Hayır yeterli kadar haketmiyorsun.";
+            it -= 3;
+            oy -= 2;
+                    document.getElementById("it").innerHTML = it;
+                    document.getElementById("oy").innerHTML = oy + "%";
+        }
+    }
+    function SR4K(){
+        if (pr1 >= 250){
+            document.getElementById("kcvp").innerHTML = "Kerem: Elbette Senin İçin Bunu Yapacağım.";
+            it += 1;
+            oy += 4;
+            hi += 3;
+            pr1 -= 250;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        document.getElementById("hi").innerHTML = hi + "%";
+        document.getElementById("pr").innerHTML = "Para: " + pr1;
+        }
+        else if (pr1 <= 249){
+            document.getElementById("kcvp").innerHTML = "Kerem: Hayır yeterli kadar paran yok.";
+            it -= 1;
+            oy -= 1;
+                    document.getElementById("it").innerHTML = it;
+                    document.getElementById("oy").innerHTML = oy + "%";
         }
     }
     function SR1O(){
@@ -172,6 +248,22 @@
         }
         else if (oy >= 30 && oy <= 49){
             document.getElementById("mcvp").innerHTML = "Mahmut: Huzeyfe Sen bence iyi bir başkansın ama daha dikkatli olmalısın.Kendini üzme";
+        }
+    }
+    function SR3M(){
+        if (it >= 70){
+            document.getElementById("mcvp").innerHTML = "Mahmut: Elbette Sen İyi Bir Başkansın.";
+            it -= 1;
+            oy += 7;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("oy").innerHTML = oy + "%";
+        }
+        else if (it <= 79){
+            document.getElementById("mcvp").innerHTML = "Mahmut: Olur ama sınıftakiler duymasın.";
+            it -= 2;
+            oy += 1;
+                    document.getElementById("it").innerHTML = it;
+                    document.getElementById("oy").innerHTML = oy + "%";
         }
     }
     function K1(){
@@ -303,10 +395,15 @@
         document.getElementById("hi").innerHTML = hi + "%";
     }
     setInterval(function(){
+        pr1 += 100;
+        document.getElementById("pr").textContent = "Para: " + pr1;
         if(o == "y"){
             o = "n";
         var rnd = Math.floor(Math.random()* 6) + 1;
         document.getElementById("a" + rnd).style.display = "block";
+        }
+        if(it <= 5 && hi >= 55){
+            document.getElementById("a7").style.display = "block";
         }
     }, 10000);
     function S1(){
