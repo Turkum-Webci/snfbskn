@@ -10,25 +10,61 @@
             background-color: aqua;
             border-radius: 10%;
         }
-        #krmk,#omrk,#mhtk{
+        #krmk,#omrk,#mhtk, #hhtk, #yhtk{
             display: none;
+        }
+        #oy{
+            width: 30px;
+            height: 150px;
+            background-color: rgb(43, 255, 0);
+            margin-right: 30px;
+            display:inline-block;
+            border-radius: 5%;
+            transition: all 0.2s ease-in;
+        }
+        #hi{
+            width: 30px;
+            height: 150px;
+            background-color: rgb(49, 132, 255);
+            display:inline-block;
+            border-radius: 5%;
+            transition: all 0.2s ease-in;
+        }
+        #it{
+            width: 30px;
+            height: 30px;
+            background-color: rgb(255, 0, 0);
+            margin-right: 30px;
+            display:inline-block;
+            border-radius: 5%;
+            transition: all 0.2s ease-in;
+        }
+        #kont1{
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
+            width: 150px;
         }
 
     </style>
 </head>
 <body>
     <div id="i1">
-        <h4 id="oy">Oy = 50%</h4>
-        <h4 id="it">İtibar = 10</h4>
-        <h4 id="hi">Hocalarla Anlaşma: 50%</h4>
-        <h6 id="puan">Puan: 0</h6>
-        <h6 id="pr">Para: 0</h6>
+        <div id="kont1">
+        <div id="oy">50%</div>
+        <div id="it">10</div>
+        <div id="hi">50%</div>
+        </div>
+        <div id="puan">Puan: 0</div>
+        <div id="pr">Para: 0</div>
+        <h6>yeşil:oy,kırmızı:itibar,mavi:hocalarla anlaşma</h6>
     </div>
     <div id="i2">
         <button onclick="Y()">Yaramazlık Yapanları Tahtaya Yaz (-1% oy, +1 itibar, +2% hocalarla anlaşma)</button>
         <button onclick="U()">Yaramazlık Yapanları Tahtaya Yazma (+3% oy, -2 itibar, -3% hocalarla anlaşma)</button>
         <button onclick="H()">Sende Yaramazlık Yap :) (+5% oy, -1 itibar, -5% hocalarla anlaşma)</button>
         <button onclick="Ç()">Sınıf Seçimine Hazırlan (+7% oy, -1 itibar, -5% hocalarla anlaşma)</button>
+        <button onclick="KTP()">Ömer Tahadan Kitap Satın Al (-50 Para,+2 hocalarla anlaşma)</button>
     </div>
     <div id="a1">
         <h4 id="yrmz">Furkan ve Ali Kemal Birlikte Yaramazlık Yaptı</h4>
@@ -81,27 +117,48 @@
         <button onclick="K1()">Kerem'le Konuş</button>
         <button onclick="O1()">Ömer'le Konuş</button>
         <button onclick="M1()">Mahmut'la Konuş</button>
+        <button onclick="Y1()">Yağız'la Konuş</button>
+        <button onclick="H1()">Hamzay'la Konuş</button>
     </div>
     <div id="krmk">
+        <p id="ka">Anlaşma:50 (Ortalama. 20'ye düşünce düşman olur.)</p>
         <button onclick="SR1K()">Sınıf Hakkında Ne Düşünüyorsun?</button>
         <button onclick="SR2K()">Sence Nasıl Bir Başkanım?</button>
         <button onclick="SR3K()">Beni Desteklermisin?</button>
+        <button onclick="SR5K()">Adamsın be kerem. (Kerem +3, Yağız -2,Hamza +1, itibar +1)</button>
+        <button onclick="SR6K()">Kerem Senden Adam Madam olmaz (Kerem -3, Yağız +2,Hamza -1,Hocalarla Anlaşma -2,İtibar +3)</button>
         <button onclick="SR4K()">3D Yazıcıdan Yıldız Modelleri Çıkarırmısın? (+1 itibar, +4 oy, +3 hocalarla anlaşma, -250 para)</button>
         <button onclick="SR3()">Görüşürüz</button>
         <p id="kcvp">Kerem: </p>
     </div>
     <div id="omrk">
+        <p id="oa">Anlaşma:15 (Düşman. 20'nin altında düşman olur.)</p>
         <button onclick="SR1O()">Sınıf Hakkında Ne Düşünüyorsun?</button>
         <button onclick="SR2O()">Sence Nasıl Bir Başkanım?</button>
         <button onclick="SR3()">Görüşürüz</button>
         <p id="ocvp">Ömer: </p>
     </div>
     <div id="mhtk">
+        <p id="ma">Anlaşma:100 (Dost. 0'ın altında düşman olur.)</p>
         <button onclick="SR1M()">Sınıf Hakkında Ne Düşünüyorsun?</button>
         <button onclick="SR2M()">Sence Nasıl Bir Başkanım?</button>
         <button onclick="SR3M()">Beni Desteklermisin?</button>
+        <button onclick="SR4M()">Adamsın be Mahmut. (Mahmut +2, itibar -2)</button>
+        <button onclick="SR5M()">Mahmut Senden Adam Madam olmaz (Mahmut -8,Hocalarla Anlaşma -4,İtibar +2,Oy +6)</button>
         <button onclick="SR3()">Görüşürüz</button>
         <p id="mcvp">Mahmut: </p>
+    </div>
+    <div id="yhtk">
+        <p id="ya">Anlaşma:30 (Dost. 20'ın altında düşman olur.)</p>
+        <button onclick="YS1()">Aga Yardım et ingilizceyi falan boş ver.</button>
+        <button onclick="SR3()">By By Yagiz</button>
+        <p id="ycvp">Yağız: Hello I'm Yagiz Izzet.How Are You?</p>
+    </div>
+    <div id="hhtk">
+        <p id="ha">Anlaşma:50 (Dost. 20'ın altında düşman olur.)</p>
+        <button onclick="HS1()">Hamza merhaba.Biraz yardım edermisin.</button>
+        <button onclick="SR3()">Görüşürüz</button>
+        <p id="hcvp">Hamza: </p>
     </div>
 <script>
     var oy = 50;
@@ -109,6 +166,20 @@
     var hi = 50;
     var pr1 = 0;
     var o = "y";
+    var esegim = "y";
+    var ki = 50;
+    var mi = 100;
+    var öi = 15;
+    var yi = 30;
+    var ha = 50;
+    function KTP(){
+        if (pr1 >= 50){
+            hi += 2;
+            pr1 -= 50;
+            document.getElementById("hi").innerHTML = hi;
+            document.getElementById("pr").innerHTML = "Para: " + pr1;
+        }
+    }
     function S61(){
                 o = "y";
         oy -= 3;
@@ -154,28 +225,63 @@
         }
     }
     function SR2K(){
+        if (ki < 20){
         if (oy >= 80){
-            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıf Başkanlığında Oyun Çok Arttı Seni Tebrik Ederim Sınıftakiler Seni Çok Seviyor.";
+            document.getElementById("kcvp").innerHTML = "Kerem: Çakma başkan net torpillidirsin.";
         }
         else if (oy >= 50 && oy <= 79){
-            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıf Başkanlığını Sınıftakiler Seviyor.";
+            document.getElementById("kcvp").innerHTML = "Kerem: Çakma başkan unutma.. bir dahaki seçimde...";
         }
         else if (oy >= 30 && oy <= 49){
-            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Sınıf Başkanlığın Kötü sınıftakiler seni hiç sevmiyor ve bence haklılar.";
+            document.getElementById("kcvp").innerHTML = "Kerem:  Çakma başkan sen çok kötüsün sınıftakiler seni hiç sevmiyor ve bence çok haklılar.";
+        }
+    }
+        else if(ki >= 20){
+        if (oy >= 80){
+            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe Seni Tebrik Ediyorum.";
+        }
+        else if (oy >= 50 && oy <= 79){
+            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe İyi durumdasın bence.";
+        }
+        else if (oy >= 30 && oy <= 49){
+            document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe dikkatli ol yenilebilirsin.. ancak seni zor durumda bırakmak ayıp olur.";
+            oy += 5;
+            it -= 2;
+            ki += 2;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("ka").innerHTML = ki;
+        document.getElementById("oy").innerHTML = oy + "%";
+        }
         }
     }
     function SR3K(){
-        if (it >= 70){
+        if (it >= 70 && ki >= 20){
             document.getElementById("kcvp").innerHTML = "Kerem: Elbette Sen İyi Bir Başkansın.";
             it -= 1;
             oy += 5;
+            ki += 2;
         document.getElementById("it").innerHTML = it;
+        document.getElementById("ka").innerHTML = ki;
         document.getElementById("oy").innerHTML = oy + "%";
         }
-        else if (it <= 79){
-            document.getElementById("kcvp").innerHTML = "Kerem: Hayır yeterli kadar haketmiyorsun.";
+        else if (it < 70 && ki < 20){
+            document.getElementById("kcvp").innerHTML = "Kerem: Hayır yeterli kadar haketmiyorsun çakma başkan.";
             it -= 3;
             oy -= 2;
+                    document.getElementById("it").innerHTML = it;
+                    document.getElementById("oy").innerHTML = oy + "%";
+        }
+        else if (it < 70 && ki >= 20){
+            document.getElementById("kcvp").innerHTML = "Kerem: Hayır yeterli kadar haketmiyorsun.ama üzülme.";
+            it -= 2;
+            oy -= 1;
+                    document.getElementById("it").innerHTML = it;
+                    document.getElementById("oy").innerHTML = oy + "%";
+        }
+        else if (it >= 70 && ki < 20){
+            document.getElementById("kcvp").innerHTML = "Kerem: Torpilli çakma başkan utandanmadan bunudamı soruyorsun.";
+            it -= 4;
+            oy -= 5;
                     document.getElementById("it").innerHTML = it;
                     document.getElementById("oy").innerHTML = oy + "%";
         }
@@ -199,6 +305,30 @@
                     document.getElementById("it").innerHTML = it;
                     document.getElementById("oy").innerHTML = oy + "%";
         }
+    }
+    function SR5K(){
+        document.getElementById("kcvp").innerHTML = "Kerem: Huzeyfe teşekkür ederim.";
+        ki += 3;
+        it += 1;
+        ha += 1;
+        yi -= 2;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("ka").innerHTML = ki;
+        document.getElementById("ha").innerHTML = ha;
+        document.getElementById("ya").innerHTML = yi;
+    }
+    function SR6K(){
+        document.getElementById("kcvp").innerHTML = "Kerem: ya bi git.";
+        ki -= 3;
+        it += 3;
+        hi -= 2;
+        ha -= 1;
+        yi += 2;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("ka").innerHTML = ki;
+        document.getElementById("hi").innerHTML = hi;
+        document.getElementById("ha").innerHTML = ha;
+        document.getElementById("ya").innerHTML = yi;
     }
     function SR1O(){
         if (it >= 80){
@@ -266,25 +396,109 @@
                     document.getElementById("oy").innerHTML = oy + "%";
         }
     }
+    function SR4M(){
+            document.getElementById("mcvp").innerHTML = "Mahmut: Huzeyfe teşekkür ederim.";
+        mi += 2;
+        it -= 2;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("ma").innerHTML = mi;
+    }
+    function SR5M(){
+                    document.getElementById("mcvp").innerHTML = "Mahmut: Huzeyfe Neden bunu dedin.";
+        mi -= 8;
+        it += 2;
+        oy += 6;
+        hi -= 4;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("ma").innerHTML = mi;
+        document.getElementById("oy").innerHTML = oy;
+        document.getElementById("hi").innerHTML = hi;
+        //Mahmut Senden Adam Madam olmaz (Mahmut -8,Hocalarla Anlaşma -4,İtibar +2,Oy +6)
+    }
+        function YS1(){
+            if (yi >= 50){
+            document.getElementById("ycvp").innerHTML = "Yağız: I No, I can't speak Turkish, but yes, I will increase your reputation.(türkçe: Hayır, Ben Türkçe Konuşamam Ancak Evet Senin itibarını arttıracağım.)";
+        ki -= 10;
+        esegim = "y";
+        it += 5;
+        document.getElementById("it").innerHTML = it;
+        document.getElementById("ka").innerHTML = ki;
+            }
+            else{
+                document.getElementById("ycvp").innerHTML = "Yağız:No.";
+                esegim = "o";
+                        ki -= 8;
+                        document.getElementById("ka").innerHTML = ki;
+            }
+    }
+        function HS1(){
+if(ha >= 50){
+    document.getElementById("hcvp").innerHTML = "Hamza: Olur Huzeyfe.";
+    it += 2;
+    yi -= 1;
+    document.getElementById("it").innerHTML = it;
+    document.getElementById("ya").innerHTML = yi;
+}
+else{
+    document.getElementById("hcvp").innerHTML = "Hamza: Hayır Huzeyfe.";
+}
+    }
     function K1(){
         document.getElementById("krmk").style.display = "block";
+        document.getElementById("hhtk").style.display = "none";
+        document.getElementById("yhtk").style.display = "none";
         document.getElementById("omrk").style.display = "none";
         document.getElementById("mhtk").style.display = "none";
+        if (esegim == "o"){
+            document.getElementById("kcvp").innerHTML = "Kerem: HAİN HUZEYFE ARKAMDAN İŞLER ÇEVİRMİŞSİN!YÜRÜ GİT ŞİMDİ.";
+            esegim = "y";
+        document.getElementById("krmk").style.display = "block";
+        document.getElementById("hhtk").style.display = "none";
+        document.getElementById("yhtk").style.display = "none";
+        document.getElementById("omrk").style.display = "none";
+        document.getElementById("mhtk").style.display = "none";
+        setTimeout(function(){
+document.getElementById("krmk").style.display = "none";
+        }, 1500);
+        }
     }
     function O1(){
         document.getElementById("krmk").style.display = "none";
+        document.getElementById("hhtk").style.display = "none";
+        document.getElementById("yhtk").style.display = "none";
         document.getElementById("omrk").style.display = "block";
         document.getElementById("mhtk").style.display = "none";
     }
     function M1(){
         document.getElementById("krmk").style.display = "none";
+        document.getElementById("hhtk").style.display = "none";
+        document.getElementById("yhtk").style.display = "none";
         document.getElementById("omrk").style.display = "none";
         document.getElementById("mhtk").style.display = "block";
+    }    
+    function Y1(){
+        document.getElementById("krmk").style.display = "none";
+        document.getElementById("hhtk").style.display = "none";
+        document.getElementById("yhtk").style.display = "block";
+        document.getElementById("omrk").style.display = "none";
+        document.getElementById("mhtk").style.display = "none";
+        if(yi <= 0){
+        it -= 10;
+        }
+    }
+        function H1(){
+        document.getElementById("krmk").style.display = "none";
+        document.getElementById("hhtk").style.display = "block";
+        document.getElementById("yhtk").style.display = "none";
+        document.getElementById("omrk").style.display = "none";
+        document.getElementById("mhtk").style.display = "none";
     }
     function SR3(){
         document.getElementById("krmk").style.display = "none";
         document.getElementById("omrk").style.display = "none";
         document.getElementById("mhtk").style.display = "none";
+        document.getElementById("yhtk").style.display = "none";
+        document.getElementById("hhtk").style.display = "none";
     }
     function S51(){
                 o = "y";
@@ -395,7 +609,7 @@
         document.getElementById("hi").innerHTML = hi + "%";
     }
     setInterval(function(){
-        pr1 += 100;
+        pr1 += 1;
         document.getElementById("pr").textContent = "Para: " + pr1;
         if(o == "y"){
             o = "n";
@@ -405,7 +619,7 @@
         if(it <= 5 && hi >= 55){
             document.getElementById("a7").style.display = "block";
         }
-    }, 10000);
+    }, 50);
     function S1(){
         o = "y";
         oy -= 2;
@@ -562,6 +776,9 @@
         document.getElementById("hi").innerHTML = hi + "%";
     }
     setInterval(function(){
+                document.getElementById("it").style.height = it * 3 + "px";
+        document.getElementById("hi").style.height = hi * 3  + "px";
+        document.getElementById("oy").style.height = oy * 3  + "px";
 if(oy <= 30){
 alert("Kaybettin Bir Dahakine Oya Dikkat Etmelisin 30'dan aşağıya düşmemeli.");
 }
@@ -572,12 +789,14 @@ else if(hi <= 0){
 alert("Kaybettin çünkü disipline gittin. Hocalarla Anlaşmanı 0'dan yüksekte tutmalısın");
 }
 else if(oy >= 90 && it >= 40 && hi >= 60){
-alert("Kazandın. 3 puan kazandın.");
-oy = 10;
+alert("Kazandın. 3 puan kazandın.Tekrar Başlatıyorum.");
+oy = 50;
+it = 10;
+hi = 50;
 p += 3;
 }
         document.getElementById("puan").innerHTML = "Puanınız: " + p;
-    }, 1);
+    }, 10);
 </script>
 </body>
 </html>
